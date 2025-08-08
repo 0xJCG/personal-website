@@ -11,7 +11,8 @@
       box-sizing: border-box;
     }
 
-    html, body {
+    html,
+    body {
       margin: 0;
       padding: 0;
       height: 100%;
@@ -76,13 +77,22 @@
     .post-item a:hover {
       text-decoration: underline;
     }
+
+    footer {
+      text-align: center;
+    }
+
+    footer>a>img {
+      width: 32px;
+    }
   </style>
 </head>
 
 <body>
   <header>
-    <a href="index.html">Blog</a>
-    <a href="cv.html">CV</a>
+    <a href="index.html" alt="Go to Blog">Blog</a>
+    <a href="cv.html" alt="Go to Blog">CV</a>
+    <a href="tetris/index.html" alt="Go to Tetris">Tetris</a>
   </header>
 
   <main>
@@ -90,10 +100,16 @@
 
     <ul class="post-list">
       <li class="post-item">
-        <a href="hello-world.html">Hello, World!</a>
+        <a href="posts/hello-world.html">Hello, World!</a>
       </li>
     </ul>
   </main>
+
+  <footer>
+    <p>A 0xJCG project</p>
+    <a href="https://github.com/0xJCG/personal-website" target="_blank" rel="noopener"><img src="images/github_logo.png"
+        alt="Go to GitHub to see the blog's source code" />
+  </footer>
 </body>
 
 </html>

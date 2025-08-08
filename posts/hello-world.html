@@ -5,13 +5,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>0xJCG - Hello, World!</title>
-  <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  <link rel="icon" href="../favicon.ico" type="image/x-icon">
   <style>
     * {
       box-sizing: border-box;
     }
 
-    html, body {
+    html,
+    body {
       margin: 0;
       padding: 0;
       height: 100%;
@@ -56,7 +57,8 @@
       text-align: center;
     }
 
-    h1, h3 {
+    h1,
+    h3 {
       margin-top: 1rem;
       margin-bottom: 0.5rem;
     }
@@ -64,13 +66,22 @@
     #post {
       text-align: left;
     }
+
+    footer {
+      text-align: center;
+    }
+
+    footer>a>img {
+      width: 32px;
+    }
   </style>
 </head>
 
 <body>
   <header>
-    <a href="index.html">Blog</a>
-    <a href="cv.html">CV</a>
+    <a href="../index.html" alt="Go to Blog">Blog</a>
+    <a href="../cv.html" alt="Go to Blog">CV</a>
+    <a href="../tetris/index.html" alt="Go to Tetris">Tetris</a>
   </header>
 
   <main>
@@ -79,10 +90,17 @@
 
     <div id="post">
       <p>Hi! My name is Jonathan, I'm a software engineer, and this is my personal blog.</p>
-      <p>This is my first entry. I'll try to write often. And what I'm going to write about you may ask. I don't even know that. We'll see.</p>
+      <p>This is my first entry. I'll try to write often. And what I'm going to write about you may ask. I don't even
+        know that. We'll see.</p>
       <p>Thank you for reading!</p>
     </div>
   </main>
+
+  <footer>
+    <p>A 0xJCG project</p>
+    <a href="https://github.com/0xJCG/personal-website" target="_blank" rel="noopener"><img
+        src="../images/github_logo.png" alt="Go to GitHub to see the blog's source code" />
+  </footer>
 </body>
 
 </html>

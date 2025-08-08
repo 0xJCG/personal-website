@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>0xJCG - Tetris</title>
+  <link rel="icon" href="../favicon.ico" type="image/x-icon">
+  <style>
+    html,
+    body {
+      background-image: url("images/bg-tetris.png");
+      background-repeat: repeat-x;
+      font-family: monospace;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    #container {
+      min-height: 100%;
+      position: relative;
+    }
+
+    header {
+      padding: 10px;
+    }
+
+    header img {
+      width: 64px;
+    }
+
+    #content {
+      height: 602px;
+      left: 50%;
+      margin-left: -242px;
+      margin-top: -301px;
+      position: absolute;
+      top: 50%;
+      width: 484px;
+    }
+
+    #canvas {
+      border: 1px solid #000000;
+      float: left;
+    }
+
+    #images {
+      margin: 0 auto;
+      position: absolute;
+    }
+
+    #pause {
+      margin: 0 auto;
+      position: absolute;
+    }
+
+    #mute,
+    #sound {
+      margin: 1px 259px auto;
+      position: absolute;
+    }
+
+    #data {
+      background-color: #FFFFFF;
+      border-bottom: 1px solid #000000;
+      border-right: 1px solid #000000;
+      border-top: 1px solid #000000;
+      height: 250px;
+      margin: 0 302px auto;
+      position: absolute;
+      width: 180px;
+    }
+
+    #data p {
+      margin-left: 20px;
+    }
+
+    #shape {
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <a href="index.html"><img src="images/back.png" alt="Return to main page" /></a>
+    <a href="https://github.com/0xJCG/dawe-html5-tetris" target="_blank" rel="noopener"><img
+        src="images/github_logo.png" alt="Go to GitHub to see the game's source code" /></a>
+  </header>
+
+  <div id="content">
+    <canvas id="canvas" width="300" height="600"></canvas>
+    <div id="images">
+      <img id="pause" src="images/pause.png" alt="Pause" onClick="window.location.reload()" />
+      <img id="mute" src="images/no_sound.png" alt="Mute" />
+      <img id="sound" src="images/sound.png" alt="Sound" />
+    </div>
+    <div id="data">
+      <p>
+        Score:
+        <span id="score">0</span>
+      </p>
+      <p>
+        Record:
+        <span id="record">0</span>
+      </p>
+      <p>
+        Level:
+        <span id="level">1</span>
+      </p>
+      <p>
+        Next shape:
+      </p>
+      <img src="" alt="" id="shape" />
+    </div>
+  </div>
+
+  <script src="js/tetris-min.js"></script>
+  <script>
+    function load_music() {
+      background_audio = new Audio("sounds/tetris.mp3");
+      background_audio.loop = !0;
+      background_audio.volume = .2;
+      background_audio.muted;
+      levelup_audio = new Audio("sounds/levelup.mp3");
+      levelup_audio.load();
+      levelup_audio.volume = .7;
+      rotate_audio = new Audio("sounds/rotate.mp3");
+      rotate_audio.load();
+      rotate_audio.volume = .7;
+      gameover_audio = new Audio("sounds/gameover.mp3");
+      gameover_audio.load();
+      gameover_audio.volume = .5;
+      linekill_audio = new Audio("sounds/linekill.mp3");
+      linekill_audio.load();
+      linekill_audio.volume = .7;
+      falldown_audio = new Audio("sounds/falldown.mp3");
+      falldown_audio.load();
+      falldown_audio.volume = .7;
+      pause_audio = new Audio("sounds/pause.mp3");
+      pause_audio.load();
+      pause_audio.volume = .7;
+      background_audio.addEventListener("canplaythrough", is_music_ready());
+    }
+
+    function is_music_ready() {
+      clear_canvas();
+    }
+
+    function clear_canvas() {
+      ctx.fillStyle = "white";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      game = new Tetris;
+      game.game_muted = !0;
+      game.init()
+    }
+
+    var canvas = document.getElementById("canvas");
+    ctx = canvas.getContext("2d");
+    record = localStorage.getItem("tetris_record");
+    record ? document.getElementById("record").innerHTML = record : document.getElementById("record").innerHTML = 0;
+
+    var background_audio, levelup_audio, rotate_audio, gameover_audio, linekill_audio, falldown_audio, pause_audio, game;
+
+    document.getElementById("sound").setAttribute("style", "display: none");
+    document.getElementById("pause").setAttribute("style", "display: none");
+
+    var loading_background = new Image;
+    loading_background.src = "images/loading.png", loading_background.onload = function () {
+      ctx.drawImage(loading_background, 0, 0);
+      load_music();
+    };
+  </script>
+</body>
+
+</html>
