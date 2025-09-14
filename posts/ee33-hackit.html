@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0xJCG - Euskal Encounter 33: Hack it</title>
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-color: black;
+            color: #00ff00;
+            font-family: monospace;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #001a00;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            border-bottom: 1px solid #00ff00;
+        }
+
+        header a {
+            color: #00ff00;
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+
+        header a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        h1,
+        h3 {
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        #post {
+            text-align: left;
+        }
+
+        p a,
+        p a:hover {
+            color: #71ff71;
+            text-decoration: none;
+        }
+
+        footer {
+            text-align: center;
+        }
+
+        footer>a>img {
+            width: 32px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="../index.html" alt="Go to Blog">Blog</a>
+        <a href="../cv.html" alt="Go to Blog">CV</a>
+        <a href="../tetris/index.html" alt="Go to Tetris">Tetris</a>
+    </header>
+
+    <main>
+        <h1>Euskal Encounter 33: Hack It</h1>
+        <h3>September 14, 2025 at 8:29 pm</h3>
+
+        <div id="post">
+            <p>As almost every year since the 14th edition, this year I assisted to the Euskal Encounter 33 with some
+                friends.</p>
+            <p>For those who don't know what the <a href="https://ee33.euskalencounter.org/en/" target="_blank"
+                    rel="noopener">Euskal Encounter</a> is, in summary, Euskal Encounter is a computer party
+                for computer amateurs and professionals seeking a knowledge exchange and willing to be involved for a
+                few days in any kind of activity related to computers.</p>
+            <p>One of the activities is called <a
+                    href="https://ee33.euskalencounter.org/en/free-software/hackit-solveit.html" target="_blank"
+                    rel="noopener"><em>HackIt / SolveIt</em></a>. It is a contest where participants resolve a series of
+                challenges or tests in hacking, inverse engineering, cryptography, logic, puzzles, etc.</p>
+            <p>The contest is divided into two modalities: Hack It for levels more proper to programming and inverse
+                engineering, and Solve It, for levels of logic, puzzles and riddles.</p>
+            <p>In this entry, I'm going to talk about the Hack It modality, in particular, the two of six challenges our
+                group passed (we are better at resolving Solve It challenges &#128517;).</p>
+            <h3>Hack It 1: Easy and simple to understand</h3>
+            <img src="../images/ee33-hi1.png" />
+            <p>Classical first level of a hack it, a JavaScript code reversing. As we are quite lazy and we didn't
+                want to waste time doing it, we asked Gemini and ChatGPT. Gemini failed (no surprise), but ChatGPT
+                answered successfully.</p>
+            <p>Hint: Let's see if you can solve it.</p>
+            <p>The code (for those interested):</p>
+            <pre>
+function c(p) {
+	const m = [];
+	p = p.toLowerCase();
+	for (let index = 0; index < p.length; index++) {
+		let x = p.charCodeAt(index);
+		if (x < 48 || x > 122 || (x > 57 && x < 97)) {
+			continue;
+		}
+		if ((m.length + 1) % 6 === 0) {
+			m.push(32);
+		}
+		if (x < 97) {
+			m.push(x);
+			continue;
+		}
+		x -= 97;
+		m.push((7 * x + 13) % 26 + 97);
+	}
+	let s = String.fromCharCode(...m).replace(/ /g, '');
+	if (s === 'jkhlnwwrarqznaidpqra') {
+		return true;
+	}
+	return false;
+}
+r = $("#password").val();
+res = c(r);
+$("#password").css({
+	"background-color": res ? "#8f8" : "#f88"
+});</pre>
+            <p>The answer: <b>showaffinityandgetin</b>.</p>
+            <h3>Hack It 2: To be or not to be</h3>
+            <img src="../images/ee33-hi2.png" />
+            <p>Hint, that wasn't initially there: Arnold is wise, it's important to listen what he says.</p>
+            <pre>
+A picture (or 50) is worth a thousand words.
+
+https://youtu.be/pDxn0Xfqkgw?t=2
+https://youtu.be/pDxn0Xfqkgw?t=209 https://youtu.be/pDxn0Xfqkgw?t=276
+https://youtu.be/78-vFsj3EK4?t=47 https://youtu.be/pDxn0Xfqkgw?t=496
+https://youtu.be/pDxn0Xfqkgw?t=209 https://youtu.be/pDxn0Xfqkgw?t=36
+https://youtu.be/78-vFsj3EK4?t=47 https://youtu.be/pDxn0Xfqkgw?t=133
+https://youtu.be/pDxn0Xfqkgw?t=209 https://youtu.be/pDxn0Xfqkgw?t=508
+https://youtu.be/78-vFsj3EK4?t=47 https://youtu.be/pDxn0Xfqkgw?t=133
+https://youtu.be/pDxn0Xfqkgw?t=209 https://youtu.be/pDxn0Xfqkgw?t=372
+https://youtu.be/78-vFsj3EK4?t=47 https://youtu.be/pDxn0Xfqkgw?t=133
+https://youtu.be/pDxn0Xfqkgw?t=209 https://youtu.be/pDxn0Xfqkgw?t=307
+https://youtu.be/78-vFsj3EK4?t=47 https://youtu.be/pDxn0Xfqkgw?t=496
+https://youtu.be/pDxn0Xfqkgw?t=209 https://youtu.be/pDxn0Xfqkgw?t=37
+https://youtu.be/78-vFsj3EK4?t=47 https://youtu.be/pDxn0Xfqkgw?t=133
+https://youtu.be/pDxn0Xfqkgw?t=209 https://youtu.be/pDxn0Xfqkgw?t=226
+https://youtu.be/78-vFsj3EK4?t=47 https://youtu.be/pDxn0Xfqkgw?t=496
+https://youtu.be/pDxn0Xfqkgw?t=209 https://youtu.be/pDxn0Xfqkgw?t=236
+https://youtu.be/78-vFsj3EK4?t=47 https://youtu.be/pDxn0Xfqkgw?t=133
+https://youtu.be/pDxn0Xfqkgw?t=209 https://youtu.be/pDxn0Xfqkgw?t=22
+https://youtu.be/78-vFsj3EK4?t=47 https://youtu.be/pDxn0Xfqkgw?t=133
+https://youtu.be/pDxn0Xfqkgw?t=209 https://youtu.be/pDxn0Xfqkgw?t=217
+https://youtu.be/78-vFsj3EK4?t=47 https://youtu.be/pDxn0Xfqkgw?t=496
+https://youtu.be/pDxn0Xfqkgw?t=209 https://youtu.be/pDxn0Xfqkgw?t=196
+https://youtu.be/78-vFsj3EK4?t=47 https://youtu.be/pDxn0Xfqkgw?t=133
+https://youtu.be/pDxn0Xfqkgw?t=209 https://youtu.be/pDxn0Xfqkgw?t=186
+https://youtu.be/78-vFsj3EK4?t=47 https://youtu.be/ybJWKZB0Erk?t=77
+https://youtu.be/pDxn0Xfqkgw?t=209 https://youtu.be/pDxn0Xfqkgw?t=61
+https://youtu.be/78-vFsj3EK4?t=47 https://youtu.be/pDxn0Xfqkgw?t=133
+https://youtu.be/pDxn0Xfqkgw?t=209 https://youtu.be/pDxn0Xfqkgw?t=53
+https://youtu.be/78-vFsj3EK4?t=47 https://youtu.be/pDxn0Xfqkgw?t=496
+https://youtu.be/pDxn0Xfqkgw?t=106 https://youtu.be/pDxn0Xfqkgw?t=276
+https://youtu.be/pDxn0Xfqkgw?t=253 https://youtu.be/ybJWKZB0Erk?t=77
+https://youtu.be/pDxn0Xfqkgw?t=113 https://youtu.be/pDxn0Xfqkgw?t=133
+https://youtu.be/pDxn0Xfqkgw?t=168 https://youtu.be/pDxn0Xfqkgw?t=276
+https://youtu.be/pDxn0Xfqkgw?t=101
+https://youtu.be/pDxn0Xfqkgw?t=165 https://youtu.be/ybJWKZB0Erk?t=77
+https://youtu.be/pDxn0Xfqkgw?t=8
+https://youtu.be/pDxn0Xfqkgw?t=245 https://youtu.be/pDxn0Xfqkgw?t=276
+https://youtu.be/pDxn0Xfqkgw?t=552 https://youtu.be/pDxn0Xfqkgw?t=50 https://youtu.be/pDxn0Xfqkgw?t=133 https://youtu.be/pDxn0Xfqkgw?t=133
+https://youtu.be/pDxn0Xfqkgw?t=106 https://youtu.be/pDxn0Xfqkgw?t=36
+https://youtu.be/pDxn0Xfqkgw?t=253 https://youtu.be/pDxn0Xfqkgw?t=133
+https://youtu.be/3LVfJFED7pk?t=92 https://youtu.be/pDxn0Xfqkgw?t=36
+https://youtu.be/pDxn0Xfqkgw?t=176 https://youtu.be/pDxn0Xfqkgw?t=276
+https://youtu.be/pDxn0Xfqkgw?t=222 https://youtu.be/pDxn0Xfqkgw?t=276
+https://youtu.be/pDxn0Xfqkgw?t=176 https://youtu.be/pDxn0Xfqkgw?t=276
+https://youtu.be/pDxn0Xfqkgw?t=101
+https://youtu.be/pDxn0Xfqkgw?t=92 https://youtu.be/pDxn0Xfqkgw?t=36
+https://youtu.be/pDxn0Xfqkgw?t=429
+https://youtu.be/pDxn0Xfqkgw?t=24 https://youtu.be/pDxn0Xfqkgw?t=50
+https://youtu.be/pDxn0Xfqkgw?t=10 https://youtu.be/pDxn0Xfqkgw?t=32
+https://youtu.be/pDxn0Xfqkgw?t=10 https://youtu.be/pDxn0Xfqkgw?t=446
+https://youtu.be/pDxn0Xfqkgw?t=546
+https://youtu.be/pDxn0Xfqkgw?t=209 https://youtu.be/pDxn0Xfqkgw?t=200
+https://youtu.be/78-vFsj3EK4?t=47 https://youtu.be/pDxn0Xfqkgw?t=496
+https://youtu.be/pDxn0Xfqkgw?t=209 https://youtu.be/pDxn0Xfqkgw?t=30
+https://youtu.be/78-vFsj3EK4?t=47 https://youtu.be/pDxn0Xfqkgw?t=496
+https://youtu.be/pDxn0Xfqkgw?t=209 https://youtu.be/pDxn0Xfqkgw?t=18
+https://youtu.be/78-vFsj3EK4?t=47 https://youtu.be/ybJWKZB0Erk?t=77
+https://youtu.be/pDxn0Xfqkgw?t=106 https://youtu.be/pDxn0Xfqkgw?t=200
+https://youtu.be/pDxn0Xfqkgw?t=253 https://youtu.be/pDxn0Xfqkgw?t=32
+https://youtu.be/3LVfJFED7pk?t=92 https://youtu.be/pDxn0Xfqkgw?t=446
+https://youtu.be/pDxn0Xfqkgw?t=101
+https://youtu.be/pDxn0Xfqkgw?t=106 https://youtu.be/pDxn0Xfqkgw?t=30
+https://youtu.be/pDxn0Xfqkgw?t=253 https://youtu.be/pDxn0Xfqkgw?t=133
+https://youtu.be/3LVfJFED7pk?t=92 https://youtu.be/pDxn0Xfqkgw?t=133
+https://youtu.be/pDxn0Xfqkgw?t=517 https://youtu.be/pDxn0Xfqkgw?t=496
+https://youtu.be/3LVfJFED7pk?t=92 https://youtu.be/pDxn0Xfqkgw?t=133
+https://youtu.be/pDxn0Xfqkgw?t=522 https://youtu.be/pDxn0Xfqkgw?t=496
+https://youtu.be/3LVfJFED7pk?t=92 https://youtu.be/pDxn0Xfqkgw?t=133
+https://youtu.be/pDxn0Xfqkgw?t=518 https://youtu.be/pDxn0Xfqkgw?t=496
+https://youtu.be/3LVfJFED7pk?t=92 https://youtu.be/pDxn0Xfqkgw?t=133
+https://youtu.be/pDxn0Xfqkgw?t=522 https://youtu.be/pDxn0Xfqkgw?t=496
+https://youtu.be/3LVfJFED7pk?t=92 https://youtu.be/pDxn0Xfqkgw?t=133
+https://youtu.be/pDxn0Xfqkgw?t=518 https://youtu.be/pDxn0Xfqkgw?t=496
+https://youtu.be/3LVfJFED7pk?t=92 https://youtu.be/pDxn0Xfqkgw?t=133
+https://youtu.be/3LVfJFED7pk?t=92 https://youtu.be/pDxn0Xfqkgw?t=496
+https://youtu.be/3LVfJFED7pk?t=92 https://youtu.be/pDxn0Xfqkgw?t=133
+https://youtu.be/pDxn0Xfqkgw?t=517 https://youtu.be/ybJWKZB0Erk?t=77
+https://youtu.be/3LVfJFED7pk?t=92 https://youtu.be/pDxn0Xfqkgw?t=133
+https://youtu.be/3LVfJFED7pk?t=92 https://youtu.be/ybJWKZB0Erk?t=77
+https://youtu.be/3LVfJFED7pk?t=92 https://youtu.be/pDxn0Xfqkgw?t=133
+https://youtu.be/pDxn0Xfqkgw?t=521 https://youtu.be/ybJWKZB0Erk?t=77
+https://youtu.be/3LVfJFED7pk?t=92 https://youtu.be/pDxn0Xfqkgw?t=133
+https://youtu.be/3LVfJFED7pk?t=92 https://youtu.be/ybJWKZB0Erk?t=77
+https://youtu.be/3LVfJFED7pk?t=92 https://youtu.be/pDxn0Xfqkgw?t=133
+https://youtu.be/pDxn0Xfqkgw?t=521 https://youtu.be/pDxn0Xfqkgw?t=496
+https://youtu.be/3LVfJFED7pk?t=92 https://youtu.be/pDxn0Xfqkgw?t=133
+https://youtu.be/3LVfJFED7pk?t=92 https://youtu.be/pDxn0Xfqkgw?t=496
+https://youtu.be/3LVfJFED7pk?t=92 https://youtu.be/pDxn0Xfqkgw?t=133
+https://youtu.be/pDxn0Xfqkgw?t=530 https://youtu.be/pDxn0Xfqkgw?t=200
+https://youtu.be/pDxn0Xfqkgw?t=101
+https://youtu.be/pDxn0Xfqkgw?t=45 https://youtu.be/pDxn0Xfqkgw?t=30
+https://youtu.be/pDxn0Xfqkgw?t=245 https://youtu.be/pDxn0Xfqkgw?t=18
+https://youtu.be/pDxn0Xfqkgw?t=552 https://youtu.be/pDxn0Xfqkgw?t=50 https://youtu.be/pDxn0Xfqkgw?t=446 https://youtu.be/pDxn0Xfqkgw?t=200
+https://youtu.be/pDxn0Xfqkgw?t=505 https://youtu.be/pDxn0Xfqkgw?t=18 
+https://youtu.be/pDxn0Xfqkgw?t=80
+https://youtu.be/pDxn0Xfqkgw?t=507 https://youtu.be/pDxn0Xfqkgw?t=200
+https://youtu.be/ybJWKZB0Erk?t=272
+https://youtu.be/pDxn0Xfqkgw?t=526</pre>
+            <p>What the hell!? That's what we thought when we saw the level. Why so many YouTube links if this is some
+                coding challenge?</p>
+            <p>At first sight, we can see there are a couple of videos, but each link goes after a certain timestamp of
+                the video.</p>
+            <p>We go to the first one: a video of Arnold Schwarzenegger movies best lines. The other videos were
+                similar.</p>
+            <p>As we didn't know what to do, we started removing the duplicated links. Then, we started listening to
+                Arnold. We thought of getting the word of that precise second, but not always was Arnold saying
+                something, so we started writing the entire line. That was a very good idea.</p>
+            <p>Using the AIs, I don't remember what of them said something about <a
+                    href="https://lhartikk.github.io/ArnoldC/" target="_blank" rel="noopener"><em>ArnoldC</em></a>... Of
+                course! A quick search and we went to the repository, and we started making the program with the lines.
+            </p>
+            <p>Not all of them were really necessary, but it was important to do it right, following the order of the
+                links listed in the level. After a couple of minutes trying to compile the code, we got a result: 42.
+            </p>
+            <p>Really? We knew that wasn't really the answer of the level. But, as good geeks and nerds as we are, that
+                42 could only mean something about <em>The Hitchhiker's Guide to the Galaxy</em>.</p>
+            <p>The answer (after they fixed the level): <b>The answer to the Ultimate Question of Life, the Universe,
+                    and Everything</b>.</p>
+            <hr color="#71ff71">
+            <p>If someone wants to check the rest of the levels, you can go to this <a
+                    href="https://ikasten.io/tag/ee33/" target="_blank" rel="noopener">blog</a> (it's is Spanish,
+                sorry).</p>
+            <p>Till next time!</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>A 0xJCG project</p>
+        <a href="https://github.com/0xJCG/personal-website" target="_blank" rel="noopener"><img
+                src="../images/github_logo.png" alt="Go to GitHub to see the blog's source code" />
+    </footer>
+</body>
+
+</html>
