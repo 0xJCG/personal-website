@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0xJCG - Euskal Encounter 33: Solve It</title>
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-color: black;
+            color: #00ff00;
+            font-family: monospace;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #001a00;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            border-bottom: 1px solid #00ff00;
+        }
+
+        header a {
+            color: #00ff00;
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+
+        header a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        h1,
+        h3 {
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        #post {
+            text-align: left;
+        }
+
+        p a,
+        p a:hover {
+            color: #71ff71;
+            text-decoration: none;
+        }
+
+        footer {
+            text-align: center;
+        }
+
+        footer>a>img {
+            width: 32px;
+        }
+
+        @media (width <= 800px) {
+            img {
+                height: auto;
+                width: 90vw;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="../index.html" alt="Go to Blog">Blog</a>
+        <a href="../cv.html" alt="Go to Blog">CV</a>
+        <a href="../tetris/index.html" alt="Go to Tetris">Tetris</a>
+    </header>
+
+    <main>
+        <h1>Euskal Encounter 33: Solve It</h1>
+        <h3>September 27, 2025 at 4:17 pm</h3>
+
+        <div id="post">
+            <p>Let's continue with the Solve It modality.</p>
+            <p>As I did with the <a href="./ee33-hackit.html" target="_blank" rel="noopener">Hack It</a> modality, I'm
+                only writing about the levels
+                we passed.</p>
+            <h3>Solve It 1: Universal entertainment</h3>
+            <img src="../images/ee33-si1.png" />
+            <p>It appears to be a gif, but they were 7 different images.</p>
+            <img src="../images/ee33-si1-images.png" />
+            <p>After getting all seven, we started looking for something strange. We saw the first column and the middle
+                rows of all images empty, and the pieces didn't make any sense.</p>
+            <p>We thought about Morse. Why not? Nothing. Maybe filling the gaps to obtain a message
+                pasting images in some order? No...</p>
+            <p>One of us saw it: it was binary, with the pieces being the ones. Easy. The password was a quote from the
+                amazing movie <a href="https://www.themoviedb.org/movie/860-wargames" target="_blank"
+                    rel="noopener"><em>WarGames</em></a>.</p>
+            <h3>Solve It 2: Born tu run</h3>
+            <img src="../images/ee33-si2.png" />
+            <p>Now that I'm writing this and reading all again, the title of the level was quite spot on, but then we
+                thought about other topics.</p>
+            <p>The level contained a binary file to download. With the title and being a tiny (~2 MiB) binary file, we
+                thought about a savefile of some game. What game? We didn't know. We opened with Notepad. Nothing, but
+                we have to try. Then we've searched for some strings reading its hexdump. But... If it was directly a
+                game?</p>
+            <p>Not going to lie, someone on the Discord server of the Euskal Encounter wrote something about a game
+                &#x1F937;.
+                Time to download some emulators.</p>
+            <p>After a lot of testing, one of the SNES worked! Shit, it's Mario Kart... Do we have to search for some
+                password inside the game?</p>
+            <p>Some of us started playing, but after a couple of minutes I was bored and as lazy as I am, I searched for
+                some software to edit this game (no way I was going to spend hours "playing"). I found one, and I could
+                see the all the tracks. One of them hid the password...</p>
+            <img src="../images/ee33-si2-track.png" />
+            <h3>Solve It 4: From A to B</h3>
+            <img src="../images/ee33-si4.png" />
+            <p>Quite easy when you understood what the level is telling you to do. I'm not going to translate what the
+                level is telling us, it's better if I told you directly.</p>
+            <img src="../images/ee33-si4-board.png" />
+            <p>In summary, you have to get a path being the Queen and go to the square of the King, passing for every
+                square of the board without repetitions. But you have to get the <em>quickest</em> one, so it's telling
+                you to get one that makes the less movements.</p>
+            <p>Time for ChatGPT. We got several, but we had to tell it to search for one that makes 15 movements. Why
+                15? Someone told us &#128517;.</p>
+            <p>Once we knew, we have to enter the password. How to introduce it: <a
+                    href="https://en.wikipedia.org/wiki/Algebraic_notation_(chess)" target="_blank" rel="noopener">chess
+                    notation</a>, without capturing the King (yes, we first entered it with the capture).</p>
+            <h3>Solve It 5: En garde!</h3>
+            <img src="../images/ee33-si5.png" />
+            <p>Common level of text cyphering. Maybe this level should be put as the second level and not the fifth one.
+            </p>
+            <p>Looking at the letters, and knowing the most used letter on English and Spanish (we discarded other
+                languages) is the letter <em>E</em>, and seing some letter repetitions, we started guessing.</p>
+            <p>Quite fast, we knew it was on English, so we continued. In a couple of minutes, we cracked it: a quote
+                from the movie <a href="https://www.themoviedb.org/movie/2493-the-princess-bride" target="_blank"
+                    rel="noopener"><em>The Princess Bride</em></a>.</p>
+            <p>With that quote, it was possible to crack the password (it was the second line of the level's text).
+                Unfortunately, the password was wrongly coded, so we had to play with the letters until getting the
+                correct one: <b>Pr1nCe2sAsy05w1sh</b>.</p>
+            <hr color="#71ff71">
+            <p>That's been all!</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>A 0xJCG project</p>
+        <a href="https://github.com/0xJCG/personal-website" target="_blank" rel="noopener"><img
+                src="../images/github_logo.png" alt="Go to GitHub to see the blog's source code" />
+    </footer>
+</body>
+
+</html>
