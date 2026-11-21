@@ -47,7 +47,7 @@ body {
 a {
   color: var(--accent);
   text-decoration: none;
-  transition: color 150ms ease, text-decoration-color 150ms ease;
+  transition: color 150ms ease;
 }
 
 a:hover {
@@ -136,7 +136,6 @@ main > h1 {
   line-height: 1.04;
 }
 
-main > h3,
 main > .page-subtitle,
 main > .post-date {
   margin: 14px 0 44px;
@@ -193,24 +192,55 @@ h3 {
   padding-bottom: 13px;
 }
 
-.work,
-.education {
+.timeline-group {
+  margin-bottom: 40px;
+}
+
+.timeline-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4px 20px;
+  margin-bottom: 18px;
+}
+
+.timeline-name {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.timeline-period {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.timeline-items {
   position: relative;
-  margin: 0 0 32px 4px;
-  padding: 0 0 0 24px;
+  margin-left: 6px;
+  padding-left: 18px;
   border-left: 1px solid var(--line);
 }
 
-.work::before,
-.education::before {
+.timeline-item {
+  position: relative;
+}
+
+.timeline-item::before {
   position: absolute;
   top: 7px;
-  left: -4px;
+  left: -23px;
   width: 7px;
   height: 7px;
   border-radius: 50%;
   background: var(--accent-strong);
   content: '';
+}
+
+.timeline-item + .timeline-item {
+  margin-top: 24px;
 }
 
 .date {
@@ -335,7 +365,6 @@ footer img {
     padding: 52px 0 72px;
   }
 
-  main > h3,
   main > .page-subtitle,
   main > .post-date {
     margin-bottom: 34px;
