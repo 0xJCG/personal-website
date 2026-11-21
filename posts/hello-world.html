@@ -6,100 +6,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>0xJCG - Hello, World!</title>
   <link rel="icon" href="../favicon.ico" type="image/x-icon">
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      background-color: black;
-      color: #00ff00;
-      font-family: monospace;
-    }
-
-    body {
-      display: flex;
-      flex-direction: column;
-    }
-
-    header {
-      background-color: #001a00;
-      padding: 1rem;
-      display: flex;
-      justify-content: center;
-      border-bottom: 1px solid #00ff00;
-    }
-
-    header a {
-      color: #00ff00;
-      text-decoration: none;
-      margin: 0 1rem;
-    }
-
-    header a:hover {
-      text-decoration: underline;
-    }
-
-    main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      max-width: 800px;
-      width: 100%;
-      margin: 0 auto;
-      padding: 2rem;
-      text-align: center;
-    }
-
-    h1,
-    h3 {
-      margin-top: 1rem;
-      margin-bottom: 0.5rem;
-    }
-
-    #post {
-      text-align: left;
-    }
-
-    footer {
-      text-align: center;
-    }
-
-    footer>a>img {
-      width: 32px;
-    }
-  </style>
+  <link rel="stylesheet" href="../site.css">
+  <script src="../theme.js" defer></script>
 </head>
 
 <body>
-  <header>
-    <a href="../index.html" alt="Go to Blog">Blog</a>
-    <a href="../cv.html" alt="Go to Blog">CV</a>
-    <a href="../tetris/index.html" alt="Go to Tetris">Tetris</a>
+  <header class="site-header">
+    <a class="site-brand" href="../index.html">0xJCG</a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="../index.html">Blog</a>
+      <a href="../cv.html">CV</a>
+      <a href="../tetris/index.html">Tetris</a>
+    </nav>
   </header>
+  <button class="theme-toggle" type="button" aria-label="Switch to light mode" title="Switch to light mode">☀️</button>
 
   <main>
     <h1>Hello, World!</h1>
-    <h3>August 8, 2025 at 6:17 pm</h3>
+    <p class="post-date"><time datetime="2025-08-08T18:17">August 8, 2025 at 6:17 pm</time></p>
 
-    <div id="post">
+    <article id="post">
       <p>Hi! My name is Jonathan, I'm a software engineer, and this is my personal blog.</p>
       <p>This is my first entry. I'll try to write often. And what I'm going to write about you may ask. I don't even
         know that. We'll see.</p>
       <p>Thank you for reading!</p>
-    </div>
+    </article>
   </main>
 
   <footer>
     <p>A 0xJCG project</p>
     <a href="https://github.com/0xJCG/personal-website" target="_blank" rel="noopener"><img
-        src="../images/github_logo.png" alt="Go to GitHub to see the blog's source code" />
+      src="../images/github_logo.png" alt="Go to GitHub to see the blog's source code" /></a>
   </footer>
 </body>
 

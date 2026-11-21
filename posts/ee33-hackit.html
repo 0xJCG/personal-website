@@ -6,107 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>0xJCG - Euskal Encounter 33: Hack it</title>
     <link rel="icon" href="../favicon.ico" type="image/x-icon">
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        html,
-        body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            background-color: black;
-            color: #00ff00;
-            font-family: monospace;
-        }
-
-        body {
-            display: flex;
-            flex-direction: column;
-        }
-
-        header {
-            background-color: #001a00;
-            padding: 1rem;
-            display: flex;
-            justify-content: center;
-            border-bottom: 1px solid #00ff00;
-        }
-
-        header a {
-            color: #00ff00;
-            text-decoration: none;
-            margin: 0 1rem;
-        }
-
-        header a:hover {
-            text-decoration: underline;
-        }
-
-        main {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            max-width: 800px;
-            width: 100%;
-            margin: 0 auto;
-            padding: 2rem;
-            text-align: center;
-        }
-
-        h1,
-        h3 {
-            margin-top: 1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        #post {
-            text-align: left;
-        }
-
-        p a,
-        p a:hover {
-            color: #71ff71;
-            text-decoration: none;
-        }
-
-        footer {
-            text-align: center;
-        }
-
-        footer>a>img {
-            width: 32px;
-        }
-
-        @media (width <= 800px) {
-            img {
-                height: auto;
-                width: 90vw;
-            }
-            
-            pre {
-                height: auto;
-                width: 90vw;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="../site.css">
+    <script src="../theme.js" defer></script>
 </head>
 
 <body>
-    <header>
-        <a href="../index.html" alt="Go to Blog">Blog</a>
-        <a href="../cv.html" alt="Go to Blog">CV</a>
-        <a href="../tetris/index.html" alt="Go to Tetris">Tetris</a>
+    <header class="site-header">
+        <a class="site-brand" href="../index.html">0xJCG</a>
+        <nav class="site-nav" aria-label="Primary">
+            <a href="../index.html">Blog</a>
+            <a href="../cv.html">CV</a>
+            <a href="../tetris/index.html">Tetris</a>
+        </nav>
     </header>
+    <button class="theme-toggle" type="button" aria-label="Switch to light mode" title="Switch to light mode">☀️</button>
 
     <main>
         <h1>Euskal Encounter 33: Hack It</h1>
-        <h3>September 14, 2025 at 8:29 pm</h3>
+        <p class="post-date"><time datetime="2025-09-14T20:29">September 14, 2025 at 8:29 pm</time></p>
 
-        <div id="post">
+        <article id="post">
             <p>As almost every year since the 14th edition, this year I assisted to the Euskal Encounter 33 with some
                 friends.</p>
             <p>For those who don't know what the <a href="https://ee33.euskalencounter.org/en/" target="_blank"
@@ -121,8 +40,8 @@
                 engineering, and Solve It, for levels of logic, puzzles and riddles.</p>
             <p>In this entry, I'm going to talk about the Hack It modality, in particular, the two of six challenges our
                 group passed (we are better at resolving Solve It challenges &#128517;).</p>
-            <h3>Hack It 1: Easy and simple to understand</h3>
-            <img src="../images/ee33-hi1.png" />
+            <h2>Hack It 1: Easy and simple to understand</h2>
+            <img src="../images/ee33-hi1.png" alt="Challenge screen with a masked password and the prompt 'A ver si lo sacas' ('See if you can solve it').">
             <p>Classical first level of a hack it, a JavaScript code reversing. As we are quite lazy and we didn't
                 want to waste time doing it, we asked Gemini and ChatGPT. Gemini failed (no surprise), but ChatGPT
                 answered successfully.</p>
@@ -159,8 +78,8 @@ $("#password").css({
 	"background-color": res ? "#8f8" : "#f88"
 });</pre>
             <p>The answer: <b>showaffinityandgetin</b>.</p>
-            <h3>Hack It 2: To be or not to be</h3>
-            <img src="../images/ee33-hi2.png" />
+            <h2>Hack It 2: To be or not to be</h2>
+            <img src="../images/ee33-hi2.png" alt="">
             <p>Hint, that wasn't initially there: Arnold is wise, it's important to listen what he says.</p>
             <pre>
 A picture (or 50) is worth a thousand words.
@@ -288,13 +207,13 @@ https://youtu.be/pDxn0Xfqkgw?t=526</pre>
                     href="https://ikasten.io/tag/ee33/" target="_blank" rel="noopener">blog</a> (it's is Spanish,
                 sorry).</p>
             <p>Till next time!</p>
-        </div>
+        </article>
     </main>
 
     <footer>
         <p>A 0xJCG project</p>
         <a href="https://github.com/0xJCG/personal-website" target="_blank" rel="noopener"><img
-                src="../images/github_logo.png" alt="Go to GitHub to see the blog's source code" />
+            src="../images/github_logo.png" alt="Go to GitHub to see the blog's source code" /></a>
     </footer>
 </body>
 

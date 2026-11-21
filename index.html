@@ -6,99 +6,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>0xJCG - Blog</title>
   <link rel="icon" href="./favicon.ico" type="image/x-icon">
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      background-color: black;
-      color: #00ff00;
-      font-family: monospace;
-    }
-
-    body {
-      display: flex;
-      flex-direction: column;
-    }
-
-    header {
-      background-color: #001a00;
-      padding: 1rem;
-      display: flex;
-      justify-content: center;
-      border-bottom: 1px solid #00ff00;
-    }
-
-    header a {
-      color: #00ff00;
-      text-decoration: none;
-      margin: 0 1rem;
-    }
-
-    header a:hover {
-      text-decoration: underline;
-    }
-
-    main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      max-width: 800px;
-      width: 100%;
-      margin: 0 auto;
-      padding: 2rem;
-      text-align: center;
-    }
-
-    .post-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      width: 100%;
-    }
-
-    .post-item {
-      margin-bottom: 1.5rem;
-    }
-
-    .post-item a {
-      color: #00ff00;
-      font-size: 1.2rem;
-      text-decoration: none;
-    }
-
-    .post-item a:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      text-align: center;
-    }
-
-    footer>a>img {
-      width: 32px;
-    }
-  </style>
+  <link rel="stylesheet" href="site.css">
+  <script src="theme.js" defer></script>
 </head>
 
 <body>
-  <header>
-    <a href="index.html" alt="Go to Blog">Blog</a>
-    <a href="cv.html" alt="Go to Blog">CV</a>
-    <a href="tetris/index.html" alt="Go to Tetris">Tetris</a>
+  <header class="site-header">
+    <a class="site-brand" href="index.html">0xJCG</a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html" aria-current="page">Blog</a>
+      <a href="cv.html">CV</a>
+      <a href="tetris/index.html">Tetris</a>
+    </nav>
   </header>
+  <button class="theme-toggle" type="button" aria-label="Switch to light mode" title="Switch to light mode">☀️</button>
 
   <main>
     <h1>Blog</h1>
 
-    <ul class="post-list">
+    <ol class="post-list" reversed>
       <li class="post-item">
         <a href="posts/ee33-solveit.html">Euskal Encounter 33: Solve It</a>
       </li>
@@ -108,13 +34,13 @@
       <li class="post-item">
         <a href="posts/hello-world.html">Hello, World!</a>
       </li>
-    </ul>
+    </ol>
   </main>
 
   <footer>
     <p>A 0xJCG project</p>
     <a href="https://github.com/0xJCG/personal-website" target="_blank" rel="noopener"><img src="images/github_logo.png"
-        alt="Go to GitHub to see the blog's source code" />
+      alt="Go to GitHub to see the blog's source code" /></a>
   </footer>
 </body>
 

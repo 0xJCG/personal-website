@@ -1,0 +1,380 @@
+:root {
+  color-scheme: dark;
+  --page: #111512;
+  --surface: #191f1b;
+  --surface-raised: #202923;
+  --text: #e8eee8;
+  --muted: #9da99f;
+  --line: #35423a;
+  --accent: #b7ef7a;
+  --accent-strong: #f09a72;
+  --focus: #e9ba62;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --page: #f4f5ef;
+  --surface: #ffffff;
+  --surface-raised: #e8ede5;
+  --text: #1d2921;
+  --muted: #59685d;
+  --line: #ccd5ca;
+  --accent: #3d6d36;
+  --accent-strong: #a64e32;
+  --focus: #885a00;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--page);
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--page);
+  color: var(--text);
+  font-family: monospace;
+  line-height: 1.65;
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 150ms ease, text-decoration-color 150ms ease;
+}
+
+a:hover {
+  color: var(--accent-strong);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 4px;
+}
+
+.site-header {
+  width: min(100% - 48px, 1040px);
+  min-height: 76px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 0 12px;
+  background: var(--page);
+}
+
+.site-brand {
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-left: auto;
+}
+
+.site-nav a {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.site-nav a[aria-current="page"] {
+  font-weight: 700;
+}
+
+.theme-toggle {
+  position: fixed;
+  right: max(20px, env(safe-area-inset-right));
+  bottom: max(20px, env(safe-area-inset-bottom));
+  z-index: 10;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--surface-raised);
+  color: var(--text);
+  box-shadow: 0 4px 16px rgb(0 0 0 / 24%);
+  font: 1.2rem;
+  cursor: pointer;
+  transition: transform 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+main {
+  display: block;
+  flex: 1;
+  width: min(100% - 48px, 840px);
+  margin: 0 auto;
+  padding: 72px 0 96px;
+  text-align: left;
+}
+
+main > h1 {
+  max-width: 760px;
+  margin: 0;
+  color: var(--text);
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 500;
+  line-height: 1.04;
+}
+
+main > h3,
+main > .page-subtitle,
+main > .post-date {
+  margin: 14px 0 44px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 400;
+}
+
+h2 {
+  margin: 0 0 24px;
+  color: var(--text);
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+h3 {
+  line-height: 1.45;
+}
+
+.post-list {
+  margin: 48px 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: post 4;
+}
+
+.post-item {
+  counter-increment: post -1;
+}
+
+.post-item a {
+  min-height: 82px;
+  display: grid;
+  grid-template-columns: 52px 1fr 22px;
+  align-items: center;
+  gap: 18px;
+  font-size: 1.35rem;
+}
+
+.post-item a::before {
+  content: '0' counter(post);
+  color: var(--muted);
+  font: 0.72rem;
+}
+
+.cv,
+.data {
+  width: 100%;
+  margin-top: 68px;
+}
+
+.cv h2,
+.data h2 {
+  padding-bottom: 13px;
+}
+
+.work,
+.education {
+  position: relative;
+  margin: 0 0 32px 4px;
+  padding: 0 0 0 24px;
+  border-left: 1px solid var(--line);
+}
+
+.work::before,
+.education::before {
+  position: absolute;
+  top: 7px;
+  left: -4px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-strong);
+  content: '';
+}
+
+.date {
+  margin: 0 0 6px;
+  color: var(--accent);
+  font: 0.75rem;
+}
+
+.position {
+  margin: 0 0 7px;
+  color: var(--text);
+  font-size: 1.08rem;
+  font-weight: 600;
+}
+
+.description,
+.techs {
+  margin: 0 0 8px;
+  color: var(--muted);
+}
+
+.techs {
+  font-size: 0.78rem;
+  line-height: 1.8;
+}
+
+.link {
+  margin-bottom: 12px;
+}
+
+.profile h3 {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+#post {
+  max-width: 720px;
+  margin: 0 auto;
+  color: var(--text);
+  font-size: 1.05rem;
+  line-height: 1.85;
+}
+
+#post h2 {
+  margin: 2.8rem 0 0.8rem;
+  color: var(--accent);
+  font-size: 1.7rem;
+  font-weight: 500;
+}
+
+#post p {
+  margin: 0 0 1.4rem;
+}
+
+#post img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 24px auto;
+}
+
+#post pre {
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 16px;
+  background: var(--surface);
+  color: var(--text);
+}
+
+#post hr {
+  margin: 40px 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+}
+
+footer {
+  width: min(100% - 48px, 1040px);
+  margin: 0 auto;
+  padding: 20px 0 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+footer p {
+  margin: 0;
+}
+
+footer img {
+  display: block;
+  width: 27px;
+  height: 27px;
+  object-fit: contain;
+}
+
+@media (max-width: 600px) {
+  .site-header {
+    width: min(100% - 32px, 1040px);
+    min-height: 68px;
+    gap: 14px;
+  }
+
+  .site-nav {
+    gap: 14px;
+  }
+
+  .site-nav a {
+    font-size: 0.82rem;
+  }
+
+  .theme-toggle {
+    right: max(16px, env(safe-area-inset-right));
+    bottom: max(16px, env(safe-area-inset-bottom));
+  }
+
+  main {
+    width: min(100% - 40px, 840px);
+    padding: 52px 0 72px;
+  }
+
+  main > h3,
+  main > .page-subtitle,
+  main > .post-date {
+    margin-bottom: 34px;
+  }
+
+  .post-item a {
+    grid-template-columns: 34px 1fr 18px;
+    gap: 12px;
+    font-size: 1.12rem;
+  }
+
+  footer {
+    width: min(100% - 40px, 1040px);
+  }
+}
+
+@media print {
+  :root,
+  :root[data-theme="light"] {
+    color-scheme: light;
+    --page: #fff;
+    --surface: #fff;
+    --surface-raised: #eee;
+    --text: #111;
+    --muted: #444;
+    --line: #bbb;
+    --accent: #111;
+    --accent-strong: #111;
+    --focus: #111;
+  }
+
+  .site-header,
+  footer,
+  .theme-toggle {
+    display: none;
+  }
+
+  main {
+    width: 100%;
+    padding: 0;
+  }
+}
